@@ -1,0 +1,38 @@
+{% extends "base.njk" %}
+
+{% block content %}
+    <h1 class="govuk-heading-xl">New duck</h1>
+    <form action="/save" method="post">
+        <input type='hidden' name='_csrf' value={{csrf_token}} />
+        {{ govukInput({
+            'label': {
+                'text': 'Name',
+                'classes': 'govuk-label--s'
+            },
+            'attributes': {
+                'maxLength': 100
+            },
+            'id': 'duck_name',
+            'classes': 'govuk-!-width-one-third',
+            'name': "duckName"
+        }) }}
+        {{ govukInput({
+            'label': {
+                'text': 'Colour',
+                'classes': 'govuk-label--s'
+            },
+            'attributes': {
+                'maxLength': 100
+            },
+            'id': 'duck_colour',
+            'classes': 'govuk-!-width-one-third',
+            'name': "duckColour"
+        }) }}
+        {{ govukButton({
+                    'text': 'Submit',
+                    'type': "submit",
+                    'classes': "govuk-!-margin-bottom-2",
+                    'id': "submitButton"
+                    }) }}
+    </form>
+{% endblock %}

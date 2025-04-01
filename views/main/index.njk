@@ -1,0 +1,16 @@
+{% extends "base.njk" %}
+
+{% block content %}
+    <h1 class="govuk-heading-xl">{{config.SERVICE_NAME}}</h1>
+
+    <h2 class="govuk-heading-m">Register your rubber duck here</h2>
+
+    <a href="/new">
+      {{ govukButton({
+                  'text': 'Start now',
+                  'type': "submit",
+                  'classes': "govuk-!-margin-bottom-2",
+                  'id': "startButton"
+                }) }}
+    </a>
+{% endblock %}
